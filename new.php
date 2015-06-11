@@ -43,8 +43,6 @@ else {
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
 <div class="wrapper">
-<h3><a href="/">На главную</a></h3>
-<br>
 	<?php
 	if ($step == 1) {
 	?>

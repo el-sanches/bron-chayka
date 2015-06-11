@@ -53,8 +53,6 @@ if (isset($_POST["addmngr"])) {
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
 <div class="wrapper">
-<h3><a href="/">На главную</a></h3>
-<br>
 	<h2>Добавить менеджера</h2>
 	<form action="" method="post">	
 
