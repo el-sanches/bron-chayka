@@ -35,7 +35,7 @@ else {
 	</style>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery.print.js"></script>
-	<script src="new.js"></script>
+	<script src="new.js?c=f"></script>
 	<link rel="stylesheet" href="style.css?t=4">
 </head>
 <body>
