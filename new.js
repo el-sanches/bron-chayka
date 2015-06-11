@@ -55,7 +55,7 @@ function addHandler(selector) {
 				data: {id: c_id},
 				success: function(data) {
 					//alert(data);
-					$('#c_roomType').change();
+					$('#c_roomDate').change();
 					$('a[cl-id='+c_id+']').parent().remove();
 
 				},
@@ -242,6 +242,7 @@ function addHandler(selector) {
 				success: function(data) {
 					$('#divRooms').append(data);
 					addHandlerRoom($('#divRooms p:last-child'));
+					$('#c_roomDate').change();
 				},
 				statusCode: {
 					500: function(data) {
