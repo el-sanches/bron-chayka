@@ -107,7 +107,7 @@ function addHandler(selector) {
 				dataType: 'html',
 				success: function(data) {
 					$('#divClients').append(data);
-					addHandler($('#divClients p:last-child'));
+					addHandler($('#divClients div:last-child'));
 				},
 				statusCode: {
 					500: function(data) {
@@ -175,7 +175,7 @@ function addHandler(selector) {
 				success: function(data) {
 					//$('#divDirections').empty();
 					$('#divDirections').append(data);
-					addHandlerDir($('#divDirections p:last-child'));
+					addHandlerDir($('#divDirections div:last-child'));
 				},
 				statusCode: {
 					500: function(data) {
@@ -241,7 +241,7 @@ function addHandler(selector) {
 				},
 				success: function(data) {
 					$('#divRooms').append(data);
-					addHandlerRoom($('#divRooms p:last-child'));
+					addHandlerRoom($('#divRooms div:last-child'));
 					$('#c_roomDate').change();
 				},
 				statusCode: {
