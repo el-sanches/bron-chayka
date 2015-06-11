@@ -4,6 +4,12 @@ if (!isset($_SESSION["login"])) {
 	header("Location: /login.php");
 	die();
 }
+
+if ($_SESSION["readonly"]) {
+	header("Location: /");
+	die();
+}
+
 require 'config.php';
 
 if (isset($_POST["addBus"])) {
@@ -22,6 +28,8 @@ if (isset($_POST["addBus"])) {
 </head>
 <body>
 <div class="wrapper">
+<h3><a href="/">На главную</a></h3>
+<br>
 	<h2>Список автобусов</h2>
 	<table>
 		<tr><td>#ID</td><td>Описание</td><td></td></tr>

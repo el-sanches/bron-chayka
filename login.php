@@ -5,6 +5,8 @@ require "config.php";
 if (isset($_GET["act"]) && $_GET["act"] == "logout") {
 	session_unset();
 	session_destroy();
+	header("Location: /login.php");
+	die();
 }
 
 if (isset($_SESSION["login"])) {
@@ -28,6 +30,7 @@ if (isset($_POST["enter"])) {
 			$_SESSION["login"] = $login;
 			$_SESSION["fio"] = $res["fio"];
 			$_SESSION["id"] = $res["id"];
+			$_SESSION["readonly"] = $res["readonly"];
 			header("Location: /");
 			die();
 		} else {

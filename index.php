@@ -21,12 +21,17 @@ if (!isset($_SESSION["login"])) {
 		</div>
 
 		<div class="buttons">
-			
+			<?php
+			if ($_SESSION["readonly"]) {
+			?>
+			<a href="/orders.php">Заказы</a>
+			<?php } else { ?>
 			<a href="/new.php">Новый заказ</a>
 			<a href="/hotel.php">Отели</a>
 			<a href="/directions.php">Направления</a>
 			<a href="/buses.php">Автобусы</a>
 			<a href="/managers.php">Менеджеры</a>
+			<?php } ?>
 		</div>
 
 	</div>

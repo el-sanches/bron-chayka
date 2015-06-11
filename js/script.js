@@ -27,6 +27,11 @@ $(document).ready(function() {
 		if (!c) return false;
 	});
 
+	$('.readonly_man').click(function() {
+		var c = confirm('Этот менеджер не сможет добавлять заказы. Хотите продолжить?');
+		if (!c) return false;
+	});
+
 	$('#addmngr').click(function() {
 		if (!validateFio("#fio")) {
 			alert("Введите ФИО!");

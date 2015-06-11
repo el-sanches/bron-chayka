@@ -68,19 +68,19 @@ function addHandler(selector) {
 	}
 
 	$(document).ready(function () {
-		$('#divAddCl').toggle();
+		//$('#divAddCl').toggle();
 		$('#add_client').click(function () {
 			$('#divAddCl').toggle();
 			return false;
 		});
 
-		$('#divAddDir').toggle();
+		//$('#divAddDir').toggle();
 		$('#add_direction').click(function () {
 			$('#divAddDir').toggle();
 			return false;
 		});
 
-		$('#divAddRoom').toggle();
+		//$('#divAddRoom').toggle();
 		$('#add_room').click(function () {
 			$('#divAddRoom').toggle();
 			return false;
@@ -90,13 +90,17 @@ function addHandler(selector) {
 			var cfio = $('#c_fio').val();
 			var cpasp = $('#c_passport').val();
 			var cage = $('#c_age').val();
+			var cphone = $('#c_phone').val();
+			var ccom = $('#c_comment').val();
 			var req = $.ajax({
 				url: '/ajax/addClient.php',
 				method: 'POST',
 				data: {
 					fio: cfio,
 					passport: cpasp,
-					age: cage
+					age: cage,
+					phone: cphone,
+					comment: ccom
 				},
 				dataType: 'html',
 				success: function(data) {

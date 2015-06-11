@@ -49,6 +49,9 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="wrapper">
+<h3><a href="/">На главную</a></h3>
+<br>
 <div id="printArea">
 	<h2>Заказ #<?=$order["id"]?></h2>
 	<table>
@@ -83,7 +86,9 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 		echo '<tr>';
 		$passport = $client["passport"]?(", ".$client["passport"]):"";
 		$age = $client["age"]?(", возраст: ".$client["age"]):"";
-		echo "<td>{$client['fio']}$passport$age</td>";
+		$phone = $client["phone"]?(", телефон: ".$client["phone"]):"";
+		$comment = $client["comment"]?(", комментарий: ".$client["comment"]):"";
+		echo "<td>{$client['fio']}$passport$age$phone$comment</td>";
 		echo "</tr>";
 	}
 	?>
@@ -125,8 +130,9 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 	?>
 	</table>
 </div>
+
 <br>
 <button id="btnPrint">Печать</button>
-
+</div>
 </body>
 </html>

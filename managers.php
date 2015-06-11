@@ -7,6 +7,11 @@ if (!isset($_SESSION["login"])) {
 	die();
 }
 
+if ($_SESSION["readonly"]) {
+	header("Location: /");
+	die();
+}
+
 if (isset($_GET["delete"])) {
 	$id = $_GET["delete"];
 	$res = $DB->query("SELECT * from `managers` where `id`=$id");
@@ -16,6 +21,11 @@ if (isset($_GET["delete"])) {
 			die("<h1>({$DB->errno}) {$DB->error}</h1>");
 		}
 	}
+}
+
+if (isset($_GET["readonly"])) {
+	$id = $_GET["readonly"];
+	$DB->query("UPDATE `managers` set `readonly`=1 where `id`=$id");
 }
 
 if (isset($_POST["addmngr"])) {
@@ -40,6 +50,8 @@ if (isset($_POST["addmngr"])) {
 </head>
 <body>
 <div class="wrapper">
+<h3><a href="/">На главную</a></h3>
+<br>
 	<h2>Добавить менеджера</h2>
 	<form action="" method="post">
 		<table>
@@ -59,6 +71,7 @@ if (isset($_POST["addmngr"])) {
 				<th>ФИО</th>
 				<th>Логин</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -71,6 +84,12 @@ if (isset($_POST["addmngr"])) {
 				echo '<td><a href="/orders.php?manager='.$man["id"].'">'.$man["fio"].'</a></td>';
 				echo '<td>'.$man["login"].'</td>';
 				echo '<td><a href="?delete='.$man["id"].'" class="delete_man">Удалить</a></td>';
+				if ($man["readonly"]) {
+					echo '<td><span style="color:#258125;">Только чтение</a></td>';
+				} else {
+					if ($_SESSION["id"] != $man["id"])
+						echo '<td><a href="?readonly='.$man["id"].'" class="readonly_man">Только чтение</a></td>';
+				}
 				echo "</tr>";
 			}
 

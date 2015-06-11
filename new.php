@@ -4,6 +4,10 @@ if (!isset($_SESSION["login"])) {
 	header("Location: /login.php");
 	die();
 }
+if ($_SESSION["readonly"]) {
+	header("Location: /");
+	die();
+}
 require 'config.php';
 
 if (isset($_POST["step"]))
@@ -36,6 +40,8 @@ else {
 </head>
 <body>
 <div class="wrapper">
+<h3><a href="/">На главную</a></h3>
+<br>
 	<?php
 	if ($step == 1) {
 	?>
@@ -64,6 +70,8 @@ else {
 			ФИО клиента: <input type="text" id="c_fio" maxlength="255"><br>
 			Паспортные данные: <input type="text" id="c_passport" maxlength="255"><br>
 			Возраст: <input type="text" id="c_age"><br>
+			Телефон: <input type="text" id="c_phone"><br>
+			Комментарий: <br> <textarea id="c_comment" cols="30" rows="10"></textarea><br>
 			<button id="c_submit">Добавить</button>
 		</div>
 		<div id="divClients">

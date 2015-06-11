@@ -38,6 +38,9 @@ if ($manId >= 0) {
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="wrapper">
+<h3><a href="/">На главную</a></h3>
+<br>
 <div id="printArea">
 	<h2>Заказы<?=($manId>=0)?" менеджера $man":""?></h2>
 	<a id="allOrders" href="/orders.php"><h3>Все заказы</h3></a>
@@ -70,7 +73,9 @@ if ($manId >= 0) {
 		</tbody>
 	</table>
 </div>
+
 <br>
 <button id="btnPrint">Печать</button>
+</div>
 </body>
 </html>
