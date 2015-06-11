@@ -14,6 +14,6 @@ if ($DB->errno) {
 } else {
 	$last = $DB->query("SELECT LAST_INSERT_ID() as last;")->fetch_assoc()["last"];
 	$_SESSION["clients"][] = array("id" => $last);
-echo "<p><b>$fio</b>, $passport; Возраст: $age.   <a class=\"del_client\" cl-id=\"$last\" href=\"#\">Удалить</a></p>";
+echo "<div class='one_derection'><b>$fio</b>, $passport; Возраст: $age.   <a class=\"del_client\" cl-id=\"$last\" href=\"#\">Удалить</a></div>";
 }
 ?>

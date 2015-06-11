@@ -14,5 +14,5 @@ $roomDesc = $DB->query("SELECT `description` from `hotel_rooms` where `id`=$room
 $temp = array("hotelId" => $hotel, "roomDate" => $roomDate, "roomTypeId" => $roomType, "hotelTitle" => $hotelTitle, "roomDesc" => $roomDesc);
 $_SESSION["rooms"][] = $temp;
 
-echo "<p><b>$hotelTitle</b>, $roomDate, $roomDesc <a class=\"del_room\" cl-id=\"$last\" href=\"#\">Удалить</a></p>";
+echo "<div class='one_derection'><b>$hotelTitle</b>, $roomDate, $roomDesc <a class=\"del_room\" cl-id=\"$last\" href=\"#\">Удалить</a></div>";
 ?>
