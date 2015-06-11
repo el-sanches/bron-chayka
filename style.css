@@ -25,6 +25,10 @@ input, textarea {
 	font-family: Tahoma, sans-serif;
 }
 
+.text_input input[type="text"] {
+	height:25px;
+	width: 200px;
+}
 
 
 .login_form input[type="password"], .login_form input[type="text"] {

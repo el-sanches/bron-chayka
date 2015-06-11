@@ -50,8 +50,8 @@ if (isset($_POST["addBus"])) {
 	<br>
 	<h2>Добавить автобус</h2>
 	<form action="" method="post">
-		<label for="">Описание:</label>
-		<input type="text" name="desc" id=""><br>
+		<div class="text_input" style="margin-bottom:10px;"><span><label for="">Описание:</label></span>
+		<input type="text" name="desc" id=""></div>
 		<label for="">Карта мест:</label><br>
 		<textarea name="seatMap" id="" cols="55" rows="15"></textarea><br>
 		<input type="submit" class="btn_sub" value="Добавить" name="addBus">
