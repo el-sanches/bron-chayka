@@ -41,18 +41,19 @@ if (isset($_POST["addmngr"])) {
 <body>
 <div class="wrapper">
 	<h2>Добавить менеджера</h2>
-	<form action="" method="post">
-		<table>
-			<tr><td><label>ФИО: </label></td><td><input type="text" name="fio" id="fio"></td></tr>
-			<tr><td><label>Логин: </label></td><td><input type="text" name="login" id="login"></td></tr>
-			<tr><td><label>Пароль: </label></td><td><input type="password" id="pass" name="pass"></td></tr>
-			<tr><td><label>Подтверждение пароля: </label></td><td><input type="password" id="pass_check"></td></tr>
-			<tr><td></td><td><input type="submit" name="addmngr" value="Добавить" id="addmngr"></td></tr>
-		</table>
+	<form action="" method="post">	
+
+		<div class="managers">
+			<div class="item_manager"><label>ФИО: </label></td><td><input type="text" name="fio" id="fio"></div>
+			<div class="item_manager"><label>Логин: </label></td><td><input type="text" name="login" id="login"></div>
+			<div class="item_manager"><label>Пароль: </label></td><td><input type="password" id="pass" name="pass"></div>
+			<div class="item_manager"><label>Подтверждение пароля: </label></td><td><input type="password" id="pass_check"></div>
+			<input type="submit" class="btn_sub" name="addmngr" value="Добавить" id="addmngr">
+		</div>
 	</form>
 	<br>
 	<h2>Список менеджеров</h2>
-	<table>
+	<table cellspacing="0" class="table_managers" border="0">
 		<thead>
 			<tr>
 				<th>#ID</th>

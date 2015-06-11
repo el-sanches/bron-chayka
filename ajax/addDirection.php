@@ -16,5 +16,5 @@ $bus = $DB->query("SELECT `description` from `buses` where `id`=$c_dirBus")->fet
 $temp = array("dirDateId" => $c_dirDate, "dirBusId" => $c_dirBus, "seatNum" => $c_dirSeat, "dirName" => $dirName, "fromCity" => $from, "bus" => $bus, "dirDate" => $dirDate['date']);
 $_SESSION["directions"][] = $temp;
 
-echo "<p><b>$dirName</b>, {$dirDate['date']}, $from; Автобус: $bus, место №$c_dirSeat <a class=\"del_direction\" cl-id=\"$last\" href=\"#\">Удалить</a></p>";
+echo "<div class='one_derection'><b>$dirName</b>, {$dirDate['date']}, $from; Автобус: $bus, место №$c_dirSeat <a class=\"del_direction\" cl-id=\"$last\" href=\"#\">Удалить</a></div>";
 ?>

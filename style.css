@@ -6,15 +6,20 @@
 body {
 	background-color: #D9EAF3;
 	color:#fff;
+	color:#000;
 }
 
 a {
-	color:#fff;
+	color:#000;
 }
 
 .login_form {
 	width:250px;
 	margin:100px auto;
+}
+
+input, textarea {
+	font-family: Tahoma, sans-serif;
 }
 
 
@@ -94,14 +99,163 @@ a {
 
 
 .wrapper {
-	
+	width:800px;
+
 	margin:50px;
 }
 
 .buttons {
 	margin-top:50px;
+	overflow: hidden;
 }
 
+.buttons a {
+	display: block;
+	padding:5px 10px;	
+	float:left;
+	margin-right:20px;
+	text-decoration: none;
+	background: rgba(245,245,245,1);
+background: -moz-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(227,227,227,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,245,245,1)), color-stop(100%, rgba(227,227,227,1)));
+background: -webkit-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(227,227,227,1) 100%);
+background: -o-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(227,227,227,1) 100%);
+background: -ms-linear-gradient(top, rgba(245,245,245,1) 0%, rgba(227,227,227,1) 100%);
+background: linear-gradient(to bottom, rgba(245,245,245,1) 0%, rgba(227,227,227,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e3e3e3', GradientType=0 );	border:1px solid #C7C7C7;
+}
+
+.buttons a:hover {
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(224,224,224,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0', GradientType=0 );
+	
+}
+
+.btn_sub {
+	padding:5px 10px;
+	margin-top: 20px;
+}
+
+.btn_sub:hover {
+	cursor: pointer;
+
+}
+
+.form_uni select {
+	margin-top:15px;
+}
+
+
+.form_uni, .managers {
+	width: 500px;
+}
+
+.form_uni .text_input {
+	margin-top: 10px;
+}
+
+.text_input span {
+	width:200px;
+	float:left;
+	display: block;
+}
+
+.form_uni input[type="text"] {
+	width:200px;
+	height:25px;
+}
+
+.item_manager {
+	margin-top: 15px;
+}
+
+.item_manager label {
+	width:200px;
+	display: block;
+	float:left;
+	margin-top: 5px;
+}
+.item_manager input[type="text"], .item_manager input[type="password"]  {
+	width:200px;
+	height:25px;
+
+
+}
+
+.table_managers {
+	
+	text-align: center;
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.6);	
+
+}
+
+.table_managers  {	
+	border-spacing: collapse;
+
+}
+.table_managers td {
+	border:none;
+	padding:10px 20px;
+}
+
+
+.table_managers tr {
+	background-color: #F0F0F0;
+	height:40px;
+}
+
+.delete_man, .del_direction {
+	background: #D85F5F;
+	padding:5px 10px;
+	text-decoration: none;
+	color:#fff;
+}
+
+.delete_man:hover, .del_direction:hover {
+	background: #E27272;
+	
+}
+
+.del_direction {
+	margin-left:15px;
+}
+
+
+.one_derection {
+	margin:15px 0;
+	background-color: #AAD3EA;
+	padding: 10px 5px;
+}
+
+
+
+.form_marsh .text_input {
+	margin-top: 15px;
+
+}
+
+.cena_coment {
+	margin:20px 0;
+}
+
+.cena_coment input[type="text"]{
+	padding:10px;
+	height:5px;
+	margin-bottom: 15px;
+	width:200px;
+}
+
+.cena_coment textarea {
+	padding:10px;
+	width:200px;
+
+}
 
 
 
@@ -120,29 +274,43 @@ a {
 	overflow: hidden;
 }
 
-.col-1 {
-	
+.autobus a {
+	color:#fff;
+}
+
+.COL-0 {
 	float:left;
-	width:30px;
+	padding-top:80px;
+}
+
+.row_bus {
+	height:140px;
+	width:80px;
+
+}
+
+.col-1 {	
+	float:left;
+	width:120px;
 }
 
 .col-2 {
 	
-	width:30px;
+	width:120px;
 	margin-left:50px;
 	float:left;
 }
 
 .col-3 {
 	
-	width:30px;
+	width:120px;
 	margin-left:100px;
 	float:left;
 }
 
 .col-4 {
 	
-	width:30px;
+	width:120px;
 	margin-left:50px;
 	float:left;
 }
@@ -152,8 +320,10 @@ a {
 	background: #000;
 	margin-bottom:10px;
 	padding: 5px;
-	height:20px;
+	height:140px;
 }
+
+
 
 .number_mest {
 	margin-bottom: 10px;
@@ -184,7 +354,7 @@ a.bombear {
 position: relative;
 z-index: 20;
 display: block;
-height:30px;
+height:140px;
 text-align: center;
 }
  
@@ -219,9 +389,9 @@ color: #000000;
 }
 
 .pusto {
- 	background-color: #565656;
+ 	background-color: #CD4F4F;
 }
 
 .sel {
- 	background-color: #882128;
+ 	background-color: #B3B3B3;
 }

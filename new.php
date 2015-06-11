@@ -48,7 +48,7 @@ else {
 			<option value="3">Только проживание</option>
 		</select><br>
 		<input type="hidden" name="step" value="2"/>
-		<input type="submit" name="next" value="Далее"/>
+		<input type="submit" class="btn_sub" name="next" value="Далее"/>
 	</form>
 
 	<?php
@@ -60,11 +60,11 @@ else {
 
 	<form action="" method="post">
 		<b>Клиенты:</b> <br> <a href="#" id="add_client">Добавить клиента</a><br>
-		<div id="divAddCl">
-			ФИО клиента: <input type="text" id="c_fio" maxlength="255"><br>
-			Паспортные данные: <input type="text" id="c_passport" maxlength="255"><br>
-			Возраст: <input type="text" id="c_age"><br>
-			<button id="c_submit">Добавить</button>
+		<div id="divAddCl" class="form_uni">
+			<div class="text_input"><span>ФИО клиента: </span><input type="text" id="c_fio" maxlength="255"><br></div>
+			<div class="text_input"><span>Паспортные данные:</span> <input type="text" id="c_passport" maxlength="255"><br></div>
+			<div class="text_input"><span>Возраст: </span><input type="text" id="c_age"><br></div>
+			<button id="c_submit" class="btn_sub">Добавить</button>
 		</div>
 		<div id="divClients">
 			
@@ -72,18 +72,18 @@ else {
 		<br>
 		<?php if ($_SESSION["order_type"] == 1 || $_SESSION["order_type"] == 2) { ?>
 		<b>Маршруты: </b> <br> <a href="#" id="add_direction">Добавить маршрут</a><br>
-		<div id="divAddDir">
-			Направление: <select name="c_dir" id="c_dir">
+		<div id="divAddDir" class="form_marsh">
+			<div class="text_input"><span>Направление: </span><select name="c_dir" id="c_dir">
 				<?php
 				$r = $DB->query("SELECT * from `directions`");
 				while($row = $r->fetch_assoc()) {
 					echo '<option value="'.$row["id"].'">'.$row["description"].'</option>';
 				}
 				?>
-			</select><br>
-			Дата: <select name="c_dirDate" id="c_dirDate"></select><br>
+			</select></div>
+			<div class="text_input"><span>Дата:</span> <select name="c_dirDate" id="c_dirDate"></select></div>
 
-			Автобус: <select name="c_dirBus" id="c_dirBus"></select><br>
+			<div class="text_input"><span>Автобус:</span> <select name="c_dirBus" id="c_dirBus"></select></div>
 			<a href="#" id="showSeatMap">Показать карту мест</a>
 			<div id="seatMap">
 				
@@ -91,7 +91,7 @@ else {
 			<input type="hidden" name="c_dirSeat" id="c_dirSeat"><br>
 				
 			
-			<button id="c_submitDir">Добавить</button>
+			<button id="c_submitDir" class="btn_sub">Добавить</button>
 		</div>
 
 		<div id="divDirections">
@@ -101,35 +101,35 @@ else {
 		<br>
 		<?php if ($_SESSION["order_type"] == 1 || $_SESSION["order_type"] == 3) { ?>
 		<b>Проживание: </b> <br> <a href="#" id="add_room">Добавить номер отеля</a><br>
-		<div id="divAddRoom">
-			Отель: <select id="c_hotel">
+		<div id="divAddRoom" class="form_marsh">
+			<div class="text_input"><span>Отель: </span><select id="c_hotel">
 				<?php
 				$r = $DB->query("SELECT * from `hotels`");
 				while($row = $r->fetch_assoc()) {
 					echo '<option value="'.$row["id"].'">'.$row["title"].'</option>';
 				}
 				?>
-			</select><br>
-			Дата: <select id="c_roomDate"></select><br>
+			</select></div>
+			<div class="text_input"><span>Дата: </span><select id="c_roomDate"></select></div>
 
-			Тип номера: <select id="c_roomType"></select><br>
+			<div class="text_input"><span>Тип номера:</span> <select id="c_roomType"></select></div>
 				
 			
-			<button id="c_submitRoom">Добавить</button>
+			<button id="c_submitRoom" class="btn_sub">Добавить</button>
 		</div>
 
 		<div id="divRooms">
 				
 		</div>
 		<?php } ?>
-		<br>
-		<input type="text" name="price" placeholder="Введите цену"/><br>
-		<textarea name="comment" id="" cols="30" rows="10" placeholder="Комментарий"></textarea>
-
-		<br><br>
-		<input type="hidden" name="step" value="3"/>
-		<input type="submit" value="Сохранить заявку" name="save"/>
-
+		<div class="cena_coment">
+			<input type="text" name="price" placeholder="Введите цену"/><br>
+			<textarea name="comment" id="" cols="30" rows="10" placeholder="Комментарий"></textarea>
+			
+			<br><br>
+			<input type="hidden" name="step" value="3"/>
+			<input type="submit" class="btn_sub" value="Сохранить заявку" name="save"/>
+		</div>
 	</form>
 	<?php
 	} //end of step 2
