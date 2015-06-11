@@ -53,9 +53,11 @@ function addHandler(selector) {
 				url: '/ajax/delRoom.php',
 				method: "POST",
 				data: {id: c_id},
-				dataType: 'html',
 				success: function(data) {
+					//alert(data);
+					$('#c_roomType').change();
 					$('a[cl-id='+c_id+']').parent().remove();
+
 				},
 				statusCode: {
 					500: function(data) {

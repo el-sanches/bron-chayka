@@ -8,7 +8,11 @@ if ($DB->errno) {
 	die();
 } else {
 	while($row = $r->fetch_assoc()) {
-		echo '<option value="'.$row["id"].'">'.$row["date"].', '.(($row["from_city"] == 1)?'с города':'с курорта').'</option>';
+		$t = strtotime($row["date"]);
+		setlocale(LC_TIME, "russian");
+		$d =iconv("windows-1251", "utf-8", strftime("%d %B %Y", $t));
+		setlocale(LC_TIME, "en_US.UTF-8");
+		echo '<option value="'.$row["id"].'">'.$d.', '.(($row["from_city"] == 1)?'с города':'с курорта').'</option>';
 	}
 }
 

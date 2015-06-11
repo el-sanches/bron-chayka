@@ -3,7 +3,7 @@
 require '../config.php';
 $rDate = $_POST["rDate"];
 $hotelId = $_POST["hotelId"];
-$r = $DB->query("SELECT `hotel_room_id` from `hotel_dates` where (`date`='$rDate') and (`hotel_id`=$hotelId)");
+$r = $DB->query("SELECT `hotel_room_id` from `hotel_dates` where (`date`='$rDate') and (`hotel_id`=$hotelId) and (`free_room`=1)");
 if ($DB->errno) {
 	header("HTTP/1.0 500 Bad query ({$DB->errno}) {$DB->error}");
 	die();
