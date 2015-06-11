@@ -22,6 +22,7 @@ if ($DB->errno) {
 		$show_c = "";
 	}
 	$age_s = $age?$age:"";
-echo "<p><b>$fio</b>, $passport; Возраст: $age_s; Телефон: $phone; Комментарий: $show_c <a class=\"del_client\" cl-id=\"$last\" href=\"#\">Удалить</a></p>";
+echo "<div class='one_derection'><b>$fio</b>, $passport; Возраст: $age_s; Телефон: $phone; Комментарий: $show_c <a class=\"del_client\" cl-id=\"$last\" href=\"#\">Удалить</a></div>";
+
 }
 ?>

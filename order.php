@@ -50,8 +50,9 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 </head>
 <body>
 <div class="wrapper">
-<h3><a href="/">На главную</a></h3>
-<br>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 <div id="printArea">
 	<h2>Заказ #<?=$order["id"]?></h2>
 	<table>

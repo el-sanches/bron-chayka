@@ -20,5 +20,5 @@ $temp = array("hotelId" => $hotel, "roomDate" => $roomDate, "roomTypeId" => $roo
 $_SESSION["rooms"][] = $temp;
 $last = count($_SESSION["rooms"]) - 1;
 
-echo "<p><b>$hotelTitle</b>, $roomDate, $roomDesc <a class=\"del_room\" cl-id=\"$last\" href=\"#\">Удалить</a></p>";
+echo "<div class='one_derection'><b>$hotelTitle</b>, $roomDate, $roomDesc <a class=\"del_room\" cl-id=\"$last\" href=\"#\">Удалить</a></div>";
 ?>
