@@ -93,6 +93,8 @@ if (isset($_POST["addmngr"])) {
 				} else {
 					if ($_SESSION["id"] != $man["id"])
 						echo '<td><a href="?readonly='.$man["id"].'" class="readonly_man">Только чтение</a></td>';
+					else
+						echo '<td></td>';
 				}
 				echo "</tr>";
 			}
