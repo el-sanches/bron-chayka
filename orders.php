@@ -39,8 +39,9 @@ if ($manId >= 0) {
 </head>
 <body>
 <div class="wrapper">
-<h3><a href="/">На главную</a></h3>
-<br>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 <div id="printArea">
 	<h2>Заказы<?=($manId>=0)?" менеджера $man":""?></h2>
 	<a id="allOrders" href="/orders.php"><h3>Все заказы</h3></a>

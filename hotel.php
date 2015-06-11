@@ -16,6 +16,9 @@ require 'config.php';
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 	<h2>Список отелей</h2>
 	
 </body>

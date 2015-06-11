@@ -17,5 +17,5 @@ $_SESSION["directions"][] = $temp;
 
 $last = count($_SESSION["directions"]) - 1;
 
-echo "<p><b>$dirName</b>, {$dirDate['date']}, $from; Автобус: $bus, место №$c_dirSeat <a class=\"del_direction\" cl-id=\"$last\" href=\"#\">Удалить</a></p>";
+echo "<div class='one_derection'><b>$dirName</b>, {$dirDate['date']}, $from; Автобус: $bus, место №$c_dirSeat <a class=\"del_direction\" cl-id=\"$last\" href=\"#\">Удалить</a></div>";
 ?>

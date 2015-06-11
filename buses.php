@@ -27,12 +27,15 @@ if (isset($_POST["addBus"])) {
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 <div class="wrapper">
 <h3><a href="/">На главную</a></h3>
 <br>
 	<h2>Список автобусов</h2>
-	<table>
-		<tr><td>#ID</td><td>Описание</td><td></td></tr>
+	<table cellspacing="0" class="table_managers" >
+		<tr class="title_tab"><td>#ID</td><td>Описание</td><td></td><td></td></tr>
 		<?php
 		$r = $DB->query("SELECT * from `buses`");
 		while($b = $r->fetch_assoc()) {
@@ -51,7 +54,7 @@ if (isset($_POST["addBus"])) {
 		<input type="text" name="desc" id=""><br>
 		<label for="">Карта мест:</label><br>
 		<textarea name="seatMap" id="" cols="55" rows="15"></textarea><br>
-		<input type="submit" value="Добавить" name="addBus">
+		<input type="submit" class="btn_sub" value="Добавить" name="addBus">
 	</form>
 </div>
 </body>
