@@ -27,8 +27,7 @@ input, textarea {
 .login_form input[type="password"], .login_form input[type="text"] {
 	width:226px;
 	height:40px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
+	margin-bottom: 20px;	
 	font-size: 13px;
 	color: #444;
 	outline: none;
@@ -394,4 +393,22 @@ color: #000000;
 
 .sel {
  	background-color: #B3B3B3;
+}
+
+header {
+	height:50px;
+	background-color: #477F9E;
+	padding:20px 50px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.6)
+}
+
+header h1 a{
+	color:#FFF5E9	;
+	text-decoration: none;
+}
+
+.title_tab {font-weight: bold;}
+
+h2 {
+	margin-bottom: 15px;
 }

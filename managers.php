@@ -39,6 +39,9 @@ if (isset($_POST["addmngr"])) {
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 <div class="wrapper">
 	<h2>Добавить менеджера</h2>
 	<form action="" method="post">	

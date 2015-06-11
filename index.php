@@ -14,6 +14,9 @@ if (!isset($_SESSION["login"])) {
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 	<div class="wrapper">
 		<div class="dobro">
 			<?php echo "Добро пожаловать, <b>".$_SESSION["fio"]."</b><br>"; ?>

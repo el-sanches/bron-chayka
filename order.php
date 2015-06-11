@@ -49,6 +49,9 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 <div id="printArea">
 	<h2>Заказ #<?=$order["id"]?></h2>
 	<table>

@@ -35,6 +35,9 @@ else {
 	<link rel="stylesheet" href="style.css?t=4">
 </head>
 <body>
+<header>
+		<h1><a href="/">Онлайн бронирование</a></h1>
+	</header>
 <div class="wrapper">
 	<?php
 	if ($step == 1) {
