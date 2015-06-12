@@ -49,13 +49,14 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrapper">
 <header>
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
+<div class="wrapper">
+
 <div id="printArea">
 	<h2>Заказ #<?=$order["id"]?></h2>
-	<table>
+	<table cellspacing="0" class="table_managers left print_table" border="0">
 		<tr>
 			<td><strong>#ID</strong></td>
 			<td><?=$order["id"]?></td>
@@ -78,25 +79,43 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 		</tr>
 	</table>
 	<h3>Клиенты:</h3>
-	<table class="order">
+	<table class="order table_managers .print_table" cellspacing="0" border="0">
 	<?php
 	$res = $DB->query("SELECT * from `orders_to_clients` where `order_id`=$orderId");
 	while($cl = $res->fetch_assoc()) {
 		$clId = $cl["client_id"];
 		$client = $DB->query("SELECT * from `clients` where `id`=$clId")->fetch_assoc();
 		echo '<tr>';
-		$passport = $client["passport"]?(", ".$client["passport"]):"";
-		$age = $client["age"]?(", возраст: ".$client["age"]):"";
-		$phone = $client["phone"]?(", телефон: ".$client["phone"]):"";
-		$comment = $client["comment"]?(", комментарий: ".$client["comment"]):"";
-		echo "<td>{$client['fio']}$passport$age$phone$comment</td>";
+		$passport = $client["passport"]?("".$client["passport"]):"";
+		$age = $client["age"]?("возраст: ".$client["age"]):"";
+		$phone = $client["phone"]?("телефон: ".$client["phone"]):"";
+		$comment = $client["comment"]?("комментарий: ".$client["comment"]):"";
+		echo "<td>{$client['fio']}</td>";
 		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>$passport</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>$age</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>$phone</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>$comment</td>";
+		echo "</tr>";
+
+
 	}
 	?>
 	</table>
 	<br>
 	<h3>Направления:</h3>
-	<table class="order">
+	<table class="order table_managers" cellspacing="0" border="0">
 	<?php
 	$res = $DB->query("SELECT * from `orders_to_dirs` where `order_id`=$orderId");
 	while($cl = $res->fetch_assoc()) {
@@ -108,14 +127,30 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 		$fromCity = $dirDate["from_city"]?" с города":" с курорта";
 		$direction = $DB->query("SELECT * from `directions` where `id`=".$dirDate["direction_id"])->fetch_assoc()["description"];
 		echo '<tr>';
-		echo "<td>$direction, {$dirDate['date']},$fromCity; Автобус: $bus, место №$seat</td>";
+		echo "<td>$direction</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>{$dirDate['date']}</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>$fromCity</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>Автобус: $bus</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>место №$seat</td>";
 		echo "</tr>";
 	}
 	?>
 	</table>
 	<br>
 	<h3>Проживание:</h3>
-	<table class="order">
+	<table class="order table_managers" cellspacing="0" border="0">
 	<?php
 	$res = $DB->query("SELECT * from `orders_to_dates` where `order_id`=$orderId");
 	while($cl = $res->fetch_assoc()) {
@@ -125,15 +160,25 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 		$roomId = $cl["room_id"];
 		$room = $DB->query("SELECT * from `hotel_rooms` where `id`=$roomId")->fetch_assoc()["description"];
 		echo '<tr>';
-		echo "<td>Отель/Гостиница: $hotel, Дата: $date, Тип комнаты: $room</td>";
+		echo "<td>Отель/Гостиница: $hotel</td>";
 		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>Дата: $date</td>";
+		echo "</tr>";
+
+		echo "<tr>";
+		echo "<td>Тип комнаты: $room</td>";
+		echo "</tr>";
+
+		
 	}
 	?>
 	</table>
 </div>
 
 <br>
-<button id="btnPrint">Печать</button>
+<button class="btn_sub" id="btnPrint">Печать</button>
 </div>
 </body>
 </html>
