@@ -233,7 +233,7 @@ else {
 		?>
 	</p>
 	</div>
-	<button id="print">Печать</button>
+	<button class="btn_sub" id="print">Печать</button>
 	<script>
 		$('#print').click(function() {
 			window.print();
