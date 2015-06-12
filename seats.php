@@ -7,14 +7,18 @@ if (!isset($_SESSION["login"])) {
 	die();
 }
 
-if ($_SESSION["readonly"]) {
+if (isset($_GET["busId"]) {
+	$busId = $_GET["busId"];
+} else {
 	header("Location: /");
 	die();
 }
 
-$manId = isset($_GET["manager"])?$_GET["manager"]:-1;
-if ($manId >= 0) {
-	$man = $DB->query("SELECT `fio` from `managers` where `id`=$manId")->fetch_assoc()["fio"];
+if (isset($_GET["busId"]) {
+	$date = $_GET["date"];
+} else {
+	header("Location: /");
+	die();
 }
 
 ?>
@@ -43,6 +47,7 @@ if ($manId >= 0) {
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
@@ -50,7 +55,7 @@ if ($manId >= 0) {
 <div id="printArea">
 	<h2>Заказы<?=($manId>=0)?" менеджера $man":""?></h2>
 	<a id="allOrders" href="/orders.php"><h3>Все заказы</h3></a>
-	<table cellspacing="0" class="table_managers print_table" >
+	<table>
 		<thead>
 			<tr>
 				<th>#ID</th>
@@ -81,7 +86,7 @@ if ($manId >= 0) {
 </div>
 
 <br>
-<button class="btn_sub" id="btnPrint">Печать</button>
+<button id="btnPrint">Печать</button>
 </div>
 </body>
 </html>

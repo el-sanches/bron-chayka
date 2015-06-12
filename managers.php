@@ -53,8 +53,6 @@ if (isset($_POST["addmngr"])) {
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
 <div class="wrapper">
-<h3><a href="/">На главную</a></h3>
-<br>
 	<h2>Добавить менеджера</h2>
 	<form action="" method="post">	
 
@@ -93,6 +91,8 @@ if (isset($_POST["addmngr"])) {
 				} else {
 					if ($_SESSION["id"] != $man["id"])
 						echo '<td><a href="?readonly='.$man["id"].'" class="readonly_man">Только чтение</a></td>';
+					else
+						echo '<td></td>';
 				}
 				echo "</tr>";
 			}

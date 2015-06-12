@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $cid = $_POST["cid"];
 $_SESSION["clients"][$cid] = array();

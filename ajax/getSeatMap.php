@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $busId = isset($_POST["busId"])?$_POST["busId"]:$_GET["id"];
 $r = $DB->query("SELECT * from `buses` where `id`=$busId")->fetch_assoc()["seat_map"];

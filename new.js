@@ -107,7 +107,7 @@ function addHandler(selector) {
 				dataType: 'html',
 				success: function(data) {
 					$('#divClients').append(data);
-					addHandler($('#divClients p:last-child'));
+					addHandler($('#divClients div:last-child'));
 				},
 				statusCode: {
 					500: function(data) {
@@ -175,7 +175,7 @@ function addHandler(selector) {
 				success: function(data) {
 					//$('#divDirections').empty();
 					$('#divDirections').append(data);
-					addHandlerDir($('#divDirections p:last-child'));
+					addHandlerDir($('#divDirections div:last-child'));
 				},
 				statusCode: {
 					500: function(data) {
@@ -241,7 +241,7 @@ function addHandler(selector) {
 				},
 				success: function(data) {
 					$('#divRooms').append(data);
-					addHandlerRoom($('#divRooms p:last-child'));
+					addHandlerRoom($('#divRooms div:last-child'));
 					$('#c_roomDate').change();
 				},
 				statusCode: {
@@ -318,13 +318,15 @@ function busySeats() {
 				var sid = obj[i].seat;
 				var a = $('#'+sid);
 				$(a).parent().addClass('pusto');
-				var app = '<span><div class="title_client">Клиенты:</div>';
-				for(var j = 0; j < obj[i].clients.length; j++) {
-					var c = obj[i].clients[j];
-					app += '<div>'+c+'</div>';
+				var app = '<div class="short"><u>Клиент:</u><br>' + obj[i].clients[0] + '<br><u>Менеджер:</u><br>' + obj[i].manager + '</div>';
+				if (obj[i].clients.length > 1) {
+					app += '<span>';
+					for(var j = 0; j < obj[i].clients.length; j++) {
+						var c = obj[i].clients[j];
+						app += '<div>'+c+'</div>';
+					}
+					app += '</span>';
 				}
-				app += '<div class="title_manager">Менеджер:</div>';
-				app += '<div class="manager_bus">'+obj[i].manager+'</div></span>';
 				$(a).append(app);
 			}
 		},

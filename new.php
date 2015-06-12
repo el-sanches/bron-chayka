@@ -35,7 +35,7 @@ else {
 	</style>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery.print.js"></script>
-	<script src="new.js"></script>
+	<script src="new.js?c=f"></script>
 	<link rel="stylesheet" href="style.css?t=4">
 </head>
 <body>
@@ -43,8 +43,6 @@ else {
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
 <div class="wrapper">
-<h3><a href="/">На главную</a></h3>
-<br>
 	<?php
 	if ($step == 1) {
 	?>
@@ -148,7 +146,7 @@ else {
 		$price = $_POST["price"];
 		$comment = $_POST["comment"];
 		$user_id = $_SESSION["id"];
-		$q = "INSERT into `orders` (`price`, `comment`,`date`, `manager_id`) values($price, '$comment', now(), $user_id)";
+		$q = "INSERT into `orders` (`price`, `comment`,`date`, `manager_id`) values('$price', '$comment', now(), $user_id)";
 		$DB->query($q);
 		if ($DB->errno) {
 			die("({$DB->errno}) {$DB->error}");

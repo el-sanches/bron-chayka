@@ -7,6 +7,11 @@ if (!isset($_SESSION["login"])) {
 	die();
 }
 
+if ($_SESSION["readonly"]) {
+	header("Location: /");
+	die();
+}
+
 if (isset($_GET["id"])) {
 	$orderId = $_GET["id"];
 } else {
@@ -53,7 +58,6 @@ $man = $DB->query("SELECT `fio` from `managers` where `id`=".$order["manager_id"
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
 <div class="wrapper">
-
 <div id="printArea">
 	<h2>Заказ #<?=$order["id"]?></h2>
 	<table cellspacing="0" class="table_managers left print_table" border="0">

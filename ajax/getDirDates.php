@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $dirId = $_POST["dirId"];
 $r = $DB->query("SELECT * from `dir_dates` where `direction_id`=$dirId");
