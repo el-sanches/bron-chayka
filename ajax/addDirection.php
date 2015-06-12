@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $c_dirDate = $_POST["c_dirDate"];
 $c_dirBus = $_POST["c_dirBus"];

@@ -5,15 +5,7 @@ if (!isset($_SESSION["login"])) {
 	die();
 }
 require 'config.php';
-/*if (!isset($_GET["id"])) {
-	header("Location: /");
-	die();
-}
 
-if (!isset($_GET["date"])) {
-	header("Location: /");
-	die();
-}*/
 ?>
 
 <!DOCTYPE html>

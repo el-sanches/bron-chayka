@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 echo var_export($_SESSION["rooms"]);
 //var_dump($_SESSION);

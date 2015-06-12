@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $hotel = $_POST["hotel"];
 $roomDate = $_POST["roomDate"];

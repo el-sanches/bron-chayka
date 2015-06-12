@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $id = $_POST["id"];
 $r = $DB->query("SELECT distinct `date` from `hotel_dates` where `hotel_id`=$id");

@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: /login.php");
+	die();
+}
 require '../config.php';
 $dateId = $_POST["dateId"];
 $r = $DB->query("SELECT * from `buses_to_dates` where `dir_date_id`=$dateId");
