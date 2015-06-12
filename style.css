@@ -197,7 +197,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
 .table_managers {
 	
 	text-align: center;
-	box-shadow: 1px 1px 5px rgba(0,0,0,0.6);	
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+	border-spacing: collapse;	
 
 }
 
@@ -209,6 +210,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
 	border:none;
 	padding:10px 20px;
 }
+
+.table_managers th {
+	border:none;
+	padding:10px 20px;
+}
+
 
 
 .table_managers tr {
@@ -238,6 +245,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
 	background-color: #AAD3EA;
 	padding: 10px 5px;
 	display: inline-block;
+	  line-height: 1.6;
 }
 
 
@@ -417,6 +425,25 @@ header h1 a{
 
 .title_tab {font-weight: bold;}
 
-h2 {
+h2, h3 {
 	margin-bottom: 15px;
+}
+
+.order {
+	text-align: left;
+}
+
+.left {
+	text-align: left;
+}
+
+@media print {
+		.print_table {
+			box-shadow: none;
+
+		}
+
+		.print_table td, .print_table  th {
+			border:1px solid #000;
+		}
 }

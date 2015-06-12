@@ -1,8 +1,8 @@
 <?php 
 	$dbHost = "localhost";
 	$dbLogin = "root";
-	$dbPass = "cnfhsqjcrjk";
-	$dbName = "tur_bd";
+	$dbPass = "";
+	$dbName = "bronka";
 
 	$DB = new mysqli($dbHost, $dbLogin, $dbPass, $dbName);
 	if ($DB->connect_errno) {

@@ -38,14 +38,15 @@ if ($manId >= 0) {
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrapper">
 <header>
 		<h1><a href="/">Онлайн бронирование</a></h1>
 	</header>
+<div class="wrapper">
+
 <div id="printArea">
 	<h2>Заказы<?=($manId>=0)?" менеджера $man":""?></h2>
 	<a id="allOrders" href="/orders.php"><h3>Все заказы</h3></a>
-	<table>
+	<table cellspacing="0" class="table_managers print_table" >
 		<thead>
 			<tr>
 				<th>#ID</th>
@@ -76,7 +77,7 @@ if ($manId >= 0) {
 </div>
 
 <br>
-<button id="btnPrint">Печать</button>
+<button class="btn_sub" id="btnPrint">Печать</button>
 </div>
 </body>
 </html>
