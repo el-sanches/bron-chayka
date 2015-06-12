@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1
--- Время создания: Июн 11 2015 г., 06:12
--- Версия сервера: 5.6.21
--- Версия PHP: 5.5.19
+-- Хост: localhost
+-- Время создания: Июн 12 2015 г., 13:40
+-- Версия сервера: 5.5.41-0ubuntu0.14.04.1
+-- Версия PHP: 5.5.9-1ubuntu4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `tur_bd`
+-- База данных: `tose_bron`
 --
 
 -- --------------------------------------------------------
@@ -27,10 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `buses` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` text NOT NULL,
-  `seat_map` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `seat_map` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Дамп данных таблицы `buses`
@@ -46,10 +47,11 @@ INSERT INTO `buses` (`id`, `description`, `seat_map`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `buses_to_dates` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `bus_id` int(11) NOT NULL,
-  `dir_date_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+  `dir_date_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=108 ;
 
 --
 -- Дамп данных таблицы `buses_to_dates`
@@ -86,13 +88,14 @@ INSERT INTO `buses_to_dates` (`id`, `bus_id`, `dir_date_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `clients` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fio` varchar(255) NOT NULL,
   `passport` varchar(255) NOT NULL,
   `age` int(11) NOT NULL,
   `phone` varchar(50) NOT NULL,
-  `comment` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+  `comment` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
 -- Дамп данных таблицы `clients`
@@ -102,7 +105,14 @@ INSERT INTO `clients` (`id`, `fio`, `passport`, `age`, `phone`, `comment`) VALUE
 (17, 'Петр Петров', '', 0, '55-55-55', 'данные'),
 (18, 'Иван Иванов', '', 0, '', ''),
 (19, 'Алексей Алексеевич', '', 0, '', ''),
-(20, 'Петр Петров', '', 0, '', '');
+(20, 'Петр Петров', '', 0, '', ''),
+(22, 'Белкина Галина Геннадиевна', '14 05 696720', 53, '8-51-133-30-38', ''),
+(23, 'Горгола М.А.', '1405 557944', 0, '8-960-624-24-44', ''),
+(24, 'Горгола М.А.', '1405 557944', 0, '89606242444', ''),
+(25, 'Чайка Д.Ю.', '1414853498534897', 87623, '9823758923752', '876345отмлотвам'),
+(26, 'Горгола М.А.', '1405 557944', 0, '89606242444', ''),
+(27, 'рарара', '', 0, '77777', ''),
+(28, 'Горгола М.А.', '1405 557944', 0, '89606242444', '');
 
 -- --------------------------------------------------------
 
@@ -111,9 +121,10 @@ INSERT INTO `clients` (`id`, `fio`, `passport`, `age`, `phone`, `comment`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `directions` (
-`id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Дамп данных таблицы `directions`
@@ -129,11 +140,12 @@ INSERT INTO `directions` (`id`, `description`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `dir_dates` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
   `from_city` tinyint(1) NOT NULL,
-  `direction_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+  `direction_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Дамп данных таблицы `dir_dates`
@@ -170,10 +182,11 @@ INSERT INTO `dir_dates` (`id`, `date`, `from_city`, `direction_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `hotels` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Дамп данных таблицы `hotels`
@@ -193,12 +206,13 @@ INSERT INTO `hotels` (`id`, `title`, `description`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `hotel_dates` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
   `hotel_id` int(11) NOT NULL,
   `hotel_room_id` int(11) NOT NULL,
-  `free_room` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=764 DEFAULT CHARSET=utf8;
+  `free_room` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=764 ;
 
 --
 -- Дамп данных таблицы `hotel_dates`
@@ -207,16 +221,16 @@ CREATE TABLE IF NOT EXISTS `hotel_dates` (
 INSERT INTO `hotel_dates` (`id`, `date`, `hotel_id`, `hotel_room_id`, `free_room`) VALUES
 (16, '2015-06-19 00:00:00', 3, 7, 0),
 (17, '2015-06-19 00:00:00', 3, 8, 0),
-(18, '2015-06-19 00:00:00', 3, 9, 1),
+(18, '2015-06-19 00:00:00', 3, 9, 0),
 (19, '2015-06-19 00:00:00', 3, 10, 1),
 (20, '2015-06-19 00:00:00', 3, 11, 1),
 (21, '2015-06-19 00:00:00', 3, 12, 1),
 (22, '2015-06-19 00:00:00', 3, 13, 1),
 (23, '2015-06-19 00:00:00', 3, 14, 1),
 (24, '2015-06-19 00:00:00', 3, 15, 1),
-(25, '2015-06-19 00:00:00', 3, 16, 1),
+(25, '2015-06-19 00:00:00', 3, 16, 0),
 (26, '2015-06-19 00:00:00', 3, 17, 1),
-(27, '2015-06-26 00:00:00', 3, 7, 1),
+(27, '2015-06-26 00:00:00', 3, 7, 0),
 (28, '2015-06-26 00:00:00', 3, 8, 1),
 (29, '2015-06-26 00:00:00', 3, 9, 1),
 (30, '2015-06-26 00:00:00', 3, 10, 1),
@@ -556,8 +570,8 @@ INSERT INTO `hotel_dates` (`id`, `date`, `hotel_id`, `hotel_room_id`, `free_room
 (364, '2015-06-19 00:00:00', 6, 56, 1),
 (365, '2015-06-19 00:00:00', 6, 55, 1),
 (366, '2015-06-19 00:00:00', 6, 54, 1),
-(367, '2015-06-19 00:00:00', 6, 53, 1),
-(368, '2015-06-19 00:00:00', 6, 52, 1),
+(367, '2015-06-19 00:00:00', 6, 53, 0),
+(368, '2015-06-19 00:00:00', 6, 52, 0),
 (369, '2015-06-19 00:00:00', 6, 51, 1),
 (370, '2015-06-19 00:00:00', 6, 50, 1),
 (371, '2015-06-19 00:00:00', 6, 49, 1),
@@ -660,8 +674,8 @@ INSERT INTO `hotel_dates` (`id`, `date`, `hotel_id`, `hotel_room_id`, `free_room
 (468, '2015-07-17 00:00:00', 6, 56, 1),
 (469, '2015-07-17 00:00:00', 6, 55, 1),
 (470, '2015-07-17 00:00:00', 6, 54, 1),
-(471, '2015-07-17 00:00:00', 6, 53, 1),
-(472, '2015-07-17 00:00:00', 6, 52, 1),
+(471, '2015-07-17 00:00:00', 6, 53, 0),
+(472, '2015-07-17 00:00:00', 6, 52, 0),
 (473, '2015-07-17 00:00:00', 6, 51, 1),
 (474, '2015-07-17 00:00:00', 6, 50, 1),
 (475, '2015-07-17 00:00:00', 6, 49, 1),
@@ -961,10 +975,11 @@ INSERT INTO `hotel_dates` (`id`, `date`, `hotel_id`, `hotel_room_id`, `free_room
 --
 
 CREATE TABLE IF NOT EXISTS `hotel_rooms` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) NOT NULL,
-  `hotel_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+  `hotel_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
 
 --
 -- Дамп данных таблицы `hotel_rooms`
@@ -1047,20 +1062,27 @@ INSERT INTO `hotel_rooms` (`id`, `description`, `hotel_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `managers` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fio` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `readonly` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `readonly` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `managers`
 --
 
 INSERT INTO `managers` (`id`, `fio`, `login`, `password`, `readonly`) VALUES
-(1, 'ФИО', 'chayka', '$2y$10$rWmUgiZs4UC1WntDTSbMmukCS9psDnLdblV29LW7wo25KPkf0RbMm', 0),
-(2, 'Новый Менеджер', 'manager', '$2y$10$wbdW.J8rvTdcCJVso5MzXOPkWAS7.dgRsx88NiHw2bHOc9unKbO7K', 1);
+(1, 'Администратор', 'admin', '$2y$10$rWmUgiZs4UC1WntDTSbMmukCS9psDnLdblV29LW7wo25KPkf0RbMm', 0),
+(3, 'Наталья Чайка', 'chayka_kor', '$2y$10$kdzK6Yhfyff/MQF2fnmVZeQF.JGRJo0i/nqMggp3Q98zz01HwwkPO', 0),
+(4, 'Татьяна Чайка', 'chayka_gub', '$2y$10$tBcuiId1yfuJ9/5BLQzVK.aAWsbZnBJvyi/sGQxrMByZqYzMn40zO', 0),
+(5, 'Олеся Чайка', '1001tur', '$2y$10$kF3ksf6KhecUPdqPSg8vUuWru6RmHB7pCT69tJgxaZwXZmfMSQHS6', 0),
+(6, 'Юля Африка', 'affrika', '$2y$10$5AtHf/w.6BkoJcP3hjNSSOJ6LPGnUBHuxZzXi2gcQcI6tv.b/CaRu', 0),
+(7, 'Юля Караван', 'karavan_gub', '$2y$10$5yczvMfDWiYCGSpp7GOuC.mBAElRCDvOlwwvGpEPRbP0LyHNfsonC', 0),
+(8, 'Пользователь', 'online2015', '$2y$10$4zUl31zIRP/rGoIDrfhNNusvNhlVHB9LgFDFRqcQwAGGgyV8fiEvG', 1),
+(9, 'Диана Чайка', 'chayka_kor2', '$2y$10$Gero1f7PnJ7DjyH9lPhFh.bW5ptWKLtRs/bswAjjyoUqDGTVkAL06', 0);
 
 -- --------------------------------------------------------
 
@@ -1069,20 +1091,13 @@ INSERT INTO `managers` (`id`, `fio`, `login`, `password`, `readonly`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `orders` (
-`id` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `price` varchar(20) NOT NULL,
   `comment` text NOT NULL,
   `date` datetime NOT NULL,
-  `manager_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `orders`
---
-
-INSERT INTO `orders` (`id`, `price`, `comment`, `date`, `manager_id`) VALUES
-(8, 10000, '', '2015-06-11 06:14:12', 1),
-(9, 15000, '', '2015-06-11 06:17:54', 1);
+  `manager_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -1092,7 +1107,8 @@ INSERT INTO `orders` (`id`, `price`, `comment`, `date`, `manager_id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `orders_to_clients` (
   `order_id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL
+  `client_id` int(11) NOT NULL,
+  PRIMARY KEY (`order_id`,`client_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1102,7 +1118,10 @@ CREATE TABLE IF NOT EXISTS `orders_to_clients` (
 INSERT INTO `orders_to_clients` (`order_id`, `client_id`) VALUES
 (8, 17),
 (9, 18),
-(9, 19);
+(9, 19),
+(10, 25),
+(11, 27),
+(12, 28);
 
 -- --------------------------------------------------------
 
@@ -1115,8 +1134,9 @@ CREATE TABLE IF NOT EXISTS `orders_to_dates` (
   `hotel_id` int(11) NOT NULL,
   `room_date` varchar(255) NOT NULL,
   `room_id` int(11) NOT NULL,
-`id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='room dates';
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='room dates' AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `orders_to_dates`
@@ -1124,7 +1144,10 @@ CREATE TABLE IF NOT EXISTS `orders_to_dates` (
 
 INSERT INTO `orders_to_dates` (`order_id`, `hotel_id`, `room_date`, `room_id`, `id`) VALUES
 (8, 3, '2015-06-19 00:00:00', 7, 7),
-(9, 3, '2015-06-19 00:00:00', 8, 8);
+(9, 3, '2015-06-19 00:00:00', 8, 8),
+(10, 3, '2015-06-26 00:00:00', 7, 9),
+(11, 3, '2015-06-19 00:00:00', 9, 10),
+(12, 6, '2015-07-17 00:00:00', 52, 11);
 
 -- --------------------------------------------------------
 
@@ -1137,8 +1160,9 @@ CREATE TABLE IF NOT EXISTS `orders_to_dirs` (
   `bus_id` int(11) NOT NULL,
   `seat_num` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
-`id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Дамп данных таблицы `orders_to_dirs`
@@ -1147,154 +1171,11 @@ CREATE TABLE IF NOT EXISTS `orders_to_dirs` (
 INSERT INTO `orders_to_dirs` (`date_dir_id`, `bus_id`, `seat_num`, `order_id`, `id`) VALUES
 (5, 1, 1, 8, 9),
 (5, 1, 2, 9, 10),
-(5, 1, 6, 9, 11);
+(5, 1, 6, 9, 11),
+(6, 1, 1, 10, 12),
+(13, 1, 13, 12, 13),
+(13, 1, 14, 12, 14);
 
---
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `buses`
---
-ALTER TABLE `buses`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `buses_to_dates`
---
-ALTER TABLE `buses_to_dates`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `clients`
---
-ALTER TABLE `clients`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `directions`
---
-ALTER TABLE `directions`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `dir_dates`
---
-ALTER TABLE `dir_dates`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `hotels`
---
-ALTER TABLE `hotels`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `hotel_dates`
---
-ALTER TABLE `hotel_dates`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `hotel_rooms`
---
-ALTER TABLE `hotel_rooms`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `managers`
---
-ALTER TABLE `managers`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `orders`
---
-ALTER TABLE `orders`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `orders_to_clients`
---
-ALTER TABLE `orders_to_clients`
- ADD PRIMARY KEY (`order_id`,`client_id`);
-
---
--- Индексы таблицы `orders_to_dates`
---
-ALTER TABLE `orders_to_dates`
- ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `orders_to_dirs`
---
-ALTER TABLE `orders_to_dirs`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `buses`
---
-ALTER TABLE `buses`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT для таблицы `buses_to_dates`
---
-ALTER TABLE `buses_to_dates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=108;
---
--- AUTO_INCREMENT для таблицы `clients`
---
-ALTER TABLE `clients`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
---
--- AUTO_INCREMENT для таблицы `directions`
---
-ALTER TABLE `directions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT для таблицы `dir_dates`
---
-ALTER TABLE `dir_dates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
---
--- AUTO_INCREMENT для таблицы `hotels`
---
-ALTER TABLE `hotels`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT для таблицы `hotel_dates`
---
-ALTER TABLE `hotel_dates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=764;
---
--- AUTO_INCREMENT для таблицы `hotel_rooms`
---
-ALTER TABLE `hotel_rooms`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=75;
---
--- AUTO_INCREMENT для таблицы `managers`
---
-ALTER TABLE `managers`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT для таблицы `orders`
---
-ALTER TABLE `orders`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT для таблицы `orders_to_dates`
---
-ALTER TABLE `orders_to_dates`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT для таблицы `orders_to_dirs`
---
-ALTER TABLE `orders_to_dirs`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

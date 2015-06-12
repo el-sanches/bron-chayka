@@ -146,7 +146,7 @@ else {
 		$price = $_POST["price"];
 		$comment = $_POST["comment"];
 		$user_id = $_SESSION["id"];
-		$q = "INSERT into `orders` (`price`, `comment`,`date`, `manager_id`) values($price, '$comment', now(), $user_id)";
+		$q = "INSERT into `orders` (`price`, `comment`,`date`, `manager_id`) values('$price', '$comment', now(), $user_id)";
 		$DB->query($q);
 		if ($DB->errno) {
 			die("({$DB->errno}) {$DB->error}");
