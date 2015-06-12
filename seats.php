@@ -7,14 +7,18 @@ if (!isset($_SESSION["login"])) {
 	die();
 }
 
-if ($_SESSION["readonly"]) {
+if (isset($_GET["busId"]) {
+	$busId = $_GET["busId"];
+} else {
 	header("Location: /");
 	die();
 }
 
-$manId = isset($_GET["manager"])?$_GET["manager"]:-1;
-if ($manId >= 0) {
-	$man = $DB->query("SELECT `fio` from `managers` where `id`=$manId")->fetch_assoc()["fio"];
+if (isset($_GET["busId"]) {
+	$date = $_GET["date"];
+} else {
+	header("Location: /");
+	die();
 }
 
 ?>

@@ -7,6 +7,11 @@ if (!isset($_SESSION["login"])) {
 	die();
 }
 
+if ($_SESSION["readonly"]) {
+	header("Location: /");
+	die();
+}
+
 if (isset($_GET["id"])) {
 	$orderId = $_GET["id"];
 } else {
