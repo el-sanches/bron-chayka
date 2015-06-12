@@ -12,6 +12,14 @@ require 'config.php';
 <html>
 <head>
 	<link rel="stylesheet" href="style.css?t=4">
+	<style type="text/css">
+		@media print
+		{
+		body * { visibility: hidden; }
+		#printArea * { visibility: visible; }
+		#printArea { position: absolute; top: 40px; left: 30px; }
+		}
+	</style>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script>
 		function busySeats(ar1, ar2) {
@@ -114,6 +122,10 @@ require 'config.php';
 				
 			});
 			
+			$('#print').click(function() {
+				window.print();
+			});
+			
 			$('#c_dir').change();
 		});
 	</script>
@@ -135,9 +147,10 @@ require 'config.php';
 	<div class="text_input"><span>Дата:</span> <select id="c_date"></select></div>
 	<div class="text_input"><span>Автобус: </span> <select id="c_bus"></select></div>
 </div>
-<div id="seatMap">
-
+<div id="printArea">
+<div id="seatMap"></div>
 </div>
+<button id="print">Печать</button>
 </div>
 </body>
 </html>
